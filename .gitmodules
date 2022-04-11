@@ -1,0 +1,4 @@
+[submodule "kitty-pistol-previewer"]
+	path = kitty-pistol-previewer
+	url = git@github.com:duganchen/kitty-pistol-previewer.git
+	branch = main
