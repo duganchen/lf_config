@@ -3,10 +3,11 @@ export PATH=$PATH:$HOME/.config/lf/kitty-pistol-previewer
 
 # lf (not lfcd) is a directory changer. Essentially this:
 # https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
-LF=$(which lf)
 lf() {
     tmp="$(mktemp)"
-    $LF -last-dir-path="$tmp" "$@"
+    # Use command to prevent a recursive call. See:
+    # https://wiki.vifm.info/index.php/How_to_set_shell_working_directory_after_leaving_Vifm
+    command lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
