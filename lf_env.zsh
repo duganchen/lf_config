@@ -2,7 +2,7 @@
 export PATH=$PATH:$HOME/.config/lf/kitty-pistol-previewer
 
 # lf (not lfcd) is a directory changer.
-if command -v archivemount; then
+if command -v archivemount >/dev/null; then
     # This:
     # https://github.com/gokcehan/lf/wiki/Integrations#archivemount
 

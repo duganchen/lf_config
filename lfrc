@@ -9,7 +9,7 @@ map <delete> delete
 cmd open ${{
     case "$f" in
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2|*.tar.gz|*.tgz|*.tar.xz|*.txz|*.zip|*.rar|*.iso)
-            if command -v archivemount; then
+            if command -v archivemount > /dev/null; then
                 mntdir="$f-archivemount"
                 [ ! -d "$mntdir" ] && {
                     mkdir "$mntdir"
