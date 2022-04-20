@@ -1,4 +1,4 @@
-set previewer ~/.config/lf/lf_kitty_preview
+qset previewer ~/.config/lf/lf_kitty_preview
 set cleaner ~/.config/lf/lf_kitty_clean
 set icons
 
@@ -13,7 +13,7 @@ cmd open ${{
                 mntdir="$f-archivemount"
                 [ ! -d "$mntdir" ] && {
                     mkdir "$mntdir"
-                    archivemount "$f" "$mntdir"
+                    archivemount $f "$mntdir"
                     echo "$mntdir" >> "/tmp/__lf_archivemount_$id"
                 }
                 lf -remote "send $id cd \"$mntdir\""
