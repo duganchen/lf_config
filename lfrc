@@ -10,6 +10,10 @@ map <enter> open
 
 cmd open $~/.config/lf/lf_open "$f"
 
+# The idea is to just send files to a running instance of VSCode. Future
+# versions will support sending all the selected files with $fx.
+map e $code "$f"
+
 # Ideas from here:
 # https://github.com/gokcehan/lf/issues/540#issuecomment-751905808
 cmd z %lf -remote "send $id cd '$(zoxide query $1)'"
