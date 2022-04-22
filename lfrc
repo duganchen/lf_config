@@ -3,7 +3,16 @@ set cleaner ~/.config/lf/lf_kitty_clean
 set icons
 
 # FMZ does this. So why not?
-map <delete> delete
+map <delete >delete
 
 # Ranger does this. How would anything else be intuitive?
-map <enter> open
+map <enter >open
+
+# Ideas from here:
+# https://github.com/gokcehan/lf/issues/540#issuecomment-751905808
+cmd z %lf -remote "send $id cd '$(zoxide query $1)'"
+
+cmd zi ${{
+    res="$(zoxide query -i "$1")"
+    lf -remote "send $id cd \"$res\""
+}}
