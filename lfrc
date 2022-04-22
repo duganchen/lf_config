@@ -6,7 +6,9 @@ set icons
 map <delete >delete
 
 # Ranger does this. How would anything else be intuitive?
-map <enter >open
+map <enter> open
+
+cmd open $~/.config/lf/lf_open "$f"
 
 # Ideas from here:
 # https://github.com/gokcehan/lf/issues/540#issuecomment-751905808

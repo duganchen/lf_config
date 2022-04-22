@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+ft=$(file -Lb --mime-type "$1")
+
+if [[ "$ft" =~ ^video/ ]]; then
+    mpv "$1"
+elif [[ "$ft" =~ ^audio/ ]]; then
+    mpv "$1"
+elif [[ "$ft" == application/vnd.rn-realmedia ]]; then
+    mpv "$1"
+else
+    $OPENER "$1"
+fi
