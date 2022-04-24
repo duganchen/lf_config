@@ -2,7 +2,7 @@ set previewer ~/.config/lf/lf_kitty_preview
 set cleaner ~/.config/lf/lf_kitty_clean
 set icons
 
-# FMZ does this. So why not?
+# FMZ (https://github.com/Naheel-Azawy/fmz) does this. So why not?
 map <delete >delete
 
 # Ranger does this. How would anything else be intuitive?
@@ -24,4 +24,11 @@ cmd z %lf -remote "send $id cd '$(zoxide query $1)'"
 cmd zi ${{
     res="$(zoxide query -i "$1")"
     lf -remote "send $id cd \"$res\""
+}}
+
+# Add some stuff from FMZ
+
+# https://github.com/mwh/dragon/releases
+cmd dnd ${{
+    echo "$fx" | xargs -d '\n' dragon -a -x
 }}
