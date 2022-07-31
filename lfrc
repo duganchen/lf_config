@@ -3,7 +3,7 @@ set cleaner ~/.config/lf/lf_kitty_clean
 set icons
 
 # FMZ (https://github.com/Naheel-Azawy/fmz) does this. So why not?
-map <delete >delete
+map <delete> delete
 
 # Ranger does this. How would anything else be intuitive?
 map <enter> open

@@ -4,7 +4,7 @@ set PATH $PATH $HOME/.config/lf/kitty-pistol-previewer
 
 function lf
     set tmp (mktemp)
-    command lf -last-dir-path=$tmp argv
+    command lf -last-dir-path=$tmp $argv
     if test -f $tmp
         set dir (cat $tmp)
         rm -f $tmp
