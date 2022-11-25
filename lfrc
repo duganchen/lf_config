@@ -32,3 +32,19 @@ cmd zi ${{
 cmd dnd ${{
     echo "$fx" | xargs -d '\n' dragon -a -x
 }}
+
+# https://github.com/gokcehan/lf/wiki/Integrations#fzf
+# Slightly modified to behave the way llama (https://github.com/antonmedv/llama) does.
+# Note the use of fd
+cmd fzf_jump ${{
+    res="$(fd . -d 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="select"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+map / :fzf_jump
