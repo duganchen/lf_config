@@ -35,9 +35,8 @@ cmd dnd ${{
 
 # https://github.com/gokcehan/lf/wiki/Integrations#fzf
 # Slightly modified to behave the way llama (https://github.com/antonmedv/llama) does.
-# Note the use of fd
 cmd fzf_jump ${{
-    res="$(fd . -d 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(fd . -d 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/\"/\\\"/g')\"
     if [ -d "$res" ] ; then
         cmd="select"
     elif [ -f "$res" ] ; then
